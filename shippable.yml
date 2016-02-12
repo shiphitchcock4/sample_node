@@ -3,22 +3,33 @@ language: node_js
 
 # Version number
 node_js:
-  - 0.10.25
+  - 0.12
 
-# The path for Xunit to output test reports
 env:
-  - XUNIT_FILE=shippable/testresults/result.xml
+  global:
+    - FOO=FUBU
 
-# Create directories for test and coverage reports
-before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
+  matrix:
+    - M1=ONE
 
-# Running the tests with grunt
-script:
-  - grunt
+build:
+ # pre_ci:
+  #  - docker build -t=shippabledocker/shiphitchcock1_sample_node .
 
-# Tell istanbul to generate a coverage report
-after_script:
-  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+  #pre_ci_boot:
+   # image_name: shippabledocker/shiphitchcock1_sample_node
+    #image_tag: latest
+    #pull: false
+    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
+  ci:
+    - ps -eax
+    - ls -al
+
+  #post_ci:
+   # - docker push shippabledocker/shiphitchcock1_sample_node
+
+#integrations:
+ # hub:
+  #  - integrationName: ship-docker
+   #   type: docker
