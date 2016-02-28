@@ -27,10 +27,38 @@ build:
     - ls -al
 
   post_ci:
-    - docker build -t=shippabledocker/shiphitchcock1_sample_node_lighthouse:28feb16 .
-    - docker push shippabledocker/shiphitchcock1_sample_node_lighthouse:28feb16
+    - docker build -t=shippabledocker/shiphitchcock1_sample_node_lighthouse:28feb2 .
+    - docker push shippabledocker/shiphitchcock1_sample_node_lighthouse:28feb2
 
 integrations:
   hub:
     - integrationName: ship-docker
       type: docker
+      
+  notifications:
+    - integrationName: email
+      type: email
+      recipients: 
+        - shiphitchcock1@gmail.com
+       # - varsha@shippable.com
+      on_start: always
+      on_success: always
+      on_failure: always
+      
+    - integrationName: ship-slack
+      type: slack
+      recipients:
+        - "#public-chnl"
+        - pvt-channel
+      on_start: always
+      on_success: always
+      on_failure: always
+    - integrationName: irc
+      type: irc
+      recipients:
+        - "chat.freenode.net#test-cock"
+       # - "chat.freenode.net#channel2"
+      on_start: always
+      on_success: always
+      on_failure: always  
+
