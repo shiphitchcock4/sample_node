@@ -14,7 +14,7 @@ node_js:
 env:
   global:
     - FOO=FUBU
-    - XUNIT_FILE=shippable/testresults/result.xml
+    - XUNIT_FILE=shippable/testresults/result.xml  
 
   matrix:
     - M1=ONE
