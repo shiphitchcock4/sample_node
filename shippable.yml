@@ -35,22 +35,22 @@ build:
     
 integrations:
   notifications:
-    - integrationName: ship_slack
-      type: slack
-      recipients:
-        - "#random" 
-        - "#public-chnl" 
+   # - integrationName: ship_slack
+    #  type: slack
+    #  recipients:
+     #   - "#random" 
+      #  - "#public-chnl" 
       #on_start: always
       #on_success: never
       #on_failure: always
       
-    - integrationName: "ship-slack1"
-      type: slack
+    #- integrationName: "ship-slack1"
+     # type: slack
       #on_failure: always
       #on_start: always
       #on_success: never
-      recipients:
-        - "#general"
+      #recipients:
+       # - "#general"
       
     - integrationName: email      
       type: email   
@@ -61,11 +61,11 @@ integrations:
       #on_success: never
       #on_failure: always 
     
-    - integrationName: irc   
-      type: irc
-      recipients:
-        - "chat.freenode.net#test-irc"
-        - "chat.freenode.net#test1-irc"
+    #- integrationName: irc   
+     # type: irc
+     # recipients:
+      #  - "chat.freenode.net#test-irc"
+       # - "chat.freenode.net#test1-irc"
     #  on_start: always
      # on_success: always      
      # on_failure: always             
